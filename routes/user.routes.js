@@ -22,7 +22,7 @@ const user_controller = require('../controllers/user.controller');
 
 /**
  * @swagger
- * /api/users/list:
+ * /users/list:
  *   get:
  *     tags:
  *       - users
@@ -39,13 +39,19 @@ router.get('/list', user_controller.user_getAll);
 
 /**
  * @swagger
- * /api/users/{id}/search:
+ * /users/{id}/search:
  *   get:
  *     tags:
  *       - users
  *     description: Returns a match user by id
  *     produces:
  *       - application/json
+ *     parameters:
+ *       - name: id
+ *         description: user's id
+ *         in: path
+ *         required: true
+ *         type: string
  *     responses:
  *       200:
  *         description: a user
@@ -56,27 +62,41 @@ router.get('/:id/search', user_controller.user_find);
 
 /**
  * @swagger
- * /api/users/create:
+ * /users/create:
  *   post:
  *     tags: users
  *     description: Adds a single user
  *     produces: application/json
  *     parameters:
- *       name: tarun
- *       in: body
- *       description: Fields for the user resource
- *       schema:
- *         type: array
- *         $ref: '#/definitions/user'
+ *       - name: name
+ *         description: user's name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: user's password
+ *         in: path
+ *         required: true
+ *         type: integer
+ *       - name: prfession
+ *         description: user's profession
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: id
+ *         description: user's id
+ *         in: path
+ *         required: true
+ *         type: integer
  *     responses:
  *       200:
- *         description: Successfully updated
+ *         description: Successfully added
  */
 router.post('/create', user_controller.user_create);
 
 /**
  * @swagger
- * /api/users/{id}/delete:
+ * /users/{id}/delete:
  *   delete:
  *     tags:
  *       - users
