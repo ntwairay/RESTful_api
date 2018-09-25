@@ -64,7 +64,8 @@ router.get('/:id/search', user_controller.user_find);
  * @swagger
  * /users/create:
  *   post:
- *     tags: users
+ *     tags:
+ *       - users
  *     description: Adds a single user
  *     produces: application/json
  *     parameters:
@@ -91,6 +92,8 @@ router.get('/:id/search', user_controller.user_find);
  *     responses:
  *       200:
  *         description: Successfully added
+ *         schema:
+ *           $ref: '#/definitions/users'
  */
 router.post('/create', user_controller.user_create);
 
