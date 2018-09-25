@@ -27,17 +27,11 @@ phases:
         functionapp:
           templateName: webapp
     steps:
-    - task: pascalnaber.PascalNaber-Xpirit-CreateSasToken.Xpirit-Vsts-Release-SasToken.createsastoken@1
-      displayName: 'Create SAS Token for Storage Account rockendarmtemplates'
-      inputs:
-        ConnectedServiceName: 'metricsstreamer'
-        StorageAccountRM: rockendarmtemplates
-        StorageContainerName: release
     - task: AzureResourceGroupDeployment@2
       displayName: Deploy resource group template
       inputs:
         action: 'Create Or Update Resource Group'
-        azureSubscription: 'metricsstreamer'
+        azureSubscription: 'ntwairay_azure'
         resourceGroupName: '$(Build.BuildNumber)-$(templateName)'
         location: 'australiaeast'
         csmFile: '$(Build.SourcesDirectory)/templates/$(templateName)/azuredeploy.json'
@@ -45,7 +39,7 @@ phases:
     - task: AzureCLI@1
       displayName: Delete resource group - don't wait
       inputs:
-        azureSubscription: 'metricsstreamer'
+        azureSubscription: 'ntwairay_azure'
         scriptLocation: inlineScript
         inlineScript: az group delete --name $(Build.BuildNumber)-$(templateName) --no-wait --yes
 
