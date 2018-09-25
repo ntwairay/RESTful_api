@@ -1,0 +1,117 @@
+{
+    "info": {
+        "title": "Ray Users API",
+        "version": "1.0.0",
+        "description": "Demonstrating how to describe a RESTful API with Swagger"
+    },
+    "host": "localhost:1234",
+    "basePath": "/",
+    "swagger": "2.0",
+    "paths": {
+        "/api/users/list": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "Returns all users",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of users",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/search": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "Returns a match user by id",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "a user",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/create": {
+            "post": {
+                "tags": "users",
+                "description": "Adds a single user",
+                "produces": "application/json",
+                "parameters": {
+                    "name": "tarun",
+                    "in": "body",
+                    "description": "Fields for the user resource",
+                    "schema": {
+                        "type": "array",
+                        "$ref": "#/definitions/user"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "users"
+                ],
+                "description": "Deletes a single user",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "user's id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "users": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "profession": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "responses": {},
+    "parameters": {},
+    "securityDefinitions": {}
+}
