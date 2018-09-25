@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 
-user = {
+var user = {
    "user4" : {
       "name" : "mohit",
       "password" : "password4",
@@ -23,19 +23,6 @@ app.delete('/deleteUser/:id', function (req, res) {
    });
 })
 
-
-app.get('/:id', function (req, res) {
-   // First read existing users.
-   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-      var users = JSON.parse( data );
-      var user = users["user" + req.params.id] 
-      console.log( user );
-      res.end( JSON.stringify(user));
-   });
-})
-
-
-
 app.post('/addUser', function (req, res) {
    // First read existing users.
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
@@ -51,6 +38,16 @@ app.get('/listUsers', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
        console.log( data );
        res.end( data );
+   });
+})
+
+app.get('/:id', function (req, res) {
+   // First read existing users.
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+      var users = JSON.parse( data );
+      var user = users["user" + req.params.id]
+      console.log( user );
+      res.end( JSON.stringify(user));
    });
 })
 
