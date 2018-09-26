@@ -73,7 +73,12 @@
         "serverFarmId": "[parameters('appSvcPlanName')]",
         "siteConfig": {
           "phpVersion": "off",
-          "appSettings": []
+          "appSettings": [
+            {
+              "name": "WEBSITE_NODE_DEFAULT_VERSION",
+              "value": "8.4.0"
+            }
+          ]
         }
       }
     }
