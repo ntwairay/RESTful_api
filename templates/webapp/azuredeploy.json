@@ -4,10 +4,10 @@
   "parameters": {
     "appSvcPlanName": {
       "type": "string",
+      "defaultValue": "rayResfulApiServicePlan",
       "metadata": {
         "description": "The name of the App Service Plan that will host the Web App."
-      },
-      "defaultValue": "rayResfulApiServicePlan",
+      }
     },
     "svcPlanSize": {
       "type": "string",
@@ -32,10 +32,10 @@
     },
     "webAppName": {
       "type": "string",
+      "defaultValue": "rayResfulApi",
       "metadata": {
         "description": "The name of the Web App."
-      },
-      "defaultValue": "rayResfulApi",
+      }
     },
     "location": {
       "type": "string",
