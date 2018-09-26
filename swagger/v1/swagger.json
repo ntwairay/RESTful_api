@@ -57,7 +57,9 @@
         },
         "/users/create": {
             "post": {
-                "tags": "users",
+                "tags": [
+                    "users"
+                ],
                 "description": "Adds a single user",
                 "produces": "application/json",
                 "parameters": [
@@ -92,7 +94,10 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successfully added"
+                        "description": "Successfully added",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
                     }
                 }
             }

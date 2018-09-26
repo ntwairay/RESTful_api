@@ -7,7 +7,7 @@ var swaggerDefinition = {
     version: '1.0.0',
     description: 'Demonstrating how to describe a RESTful API with Swagger',
   },
-  host: 'localhost:1234',
+  host: 'https://rayresfulapi.azurewebsites.net',
   basePath: '/',
 };
 // options for the swagger docs
