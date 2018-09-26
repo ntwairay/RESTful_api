@@ -36,7 +36,7 @@ phases:
         azureSubscription: 'ntwairay_azure'
         resourceGroupName: '$(Build.BuildNumber)-$(templateName)'
         location: 'australiaeast'
-        csmFile: '$(Build.SourcesDirectory)/templates/$(templateName)/webapp.azuredeploy.json'
+        csmFile: '$(Build.SourcesDirectory)/templates/$(templateName)/azuredeploy.json'
       condition: or(eq(variables['fileChanged'], 'true'), variables['System.Debug'])
     - task: AzureCLI@1
       displayName: Delete resource group - don't wait
