@@ -22,13 +22,7 @@ function Test-Template {
 
     $expectedSchema = 'https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#'
 
-    $expectedParameters = @{
-        standardTags   = "object"
-        namePrefix     = "object"
-        location       = "object"
-        geoReplication = "bool"
-        templatePaths  = "object"
-    }
+    $expectedParameters = @{}
 
 
     $Template = Get-Content -Path $File.FullName -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
